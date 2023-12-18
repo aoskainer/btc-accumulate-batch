@@ -21,7 +21,16 @@ class CalculateService {
    */
   calculateBtcBuyAmount(availableJpy: number, maxInvestJpy: number, btcAskPrice: number): string {
     // これまでの取引で端数が残っている場合があるのでこうしています。
-    const investJpy = availableJpy - (Math.floor(availableJpy / maxInvestJpy) - 1) * maxInvestJpy;
+    const investJpy = (() => {
+      const surplus = availableJpy % maxInvestJpy;
+      if (surplus >= maxInvestJpy * 0.5) {
+        return surplus;
+      } else {
+        // さすがにmaxInvestJpyの50%の金額以下の積立になると意味ないからそのときは再計算。
+        // 例えば、avail=52000円でmax=10000円だった場合、20%になっちゃうので、2000+10000円(120%)にして積み立てる。
+        return surplus + maxInvestJpy;
+      }
+    })();
     // 最小取引単位である小数第4位で四捨五入します。返る値は文字列です。
     const btcBuyAmount = (investJpy / btcAskPrice).toFixed(4);
     this.logger.info(`Calculated Price = ${investJpy} / ${btcAskPrice} = ${btcBuyAmount}(BTC)`);
