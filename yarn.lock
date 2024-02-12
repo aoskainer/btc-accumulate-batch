@@ -79,10 +79,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@types/google-apps-script@^1.0.78":
-  version "1.0.78"
-  resolved "https://registry.yarnpkg.com/@types/google-apps-script/-/google-apps-script-1.0.78.tgz#4ba09b538d19582ac031d5cd1294794c7a6aba07"
-  integrity sha512-JOTy4vjBQ+HfdtJMkfcNF5WM8RC3R6SVp90bd8BCFvNWSaQ7zzP3abOLuJSCwQHjt0hWftofckvhwEcZjZ4hcQ==
+"@types/google-apps-script@^1.0.80":
+  version "1.0.80"
+  resolved "https://registry.yarnpkg.com/@types/google-apps-script/-/google-apps-script-1.0.80.tgz#f65b597a004eb8dec24183019cc19b06c7424b71"
+  integrity sha512-lp0gJjPdFTH/vycSpznCNbfSXEt3hPUryEI4QD8Y6QG2QW069OMbztY9YVHwRZEPwyTDU7eh4il0alrbSwwB6g==
 
 "@types/json-schema@^7.0.12":
   version "7.0.13"
